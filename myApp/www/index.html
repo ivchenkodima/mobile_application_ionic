@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
+    <title></title>
+
+    <link href="lib/ionic/css/ionic.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+
+    <!-- IF using Sass (run gulp sass first), then uncomment below and remove the CSS includes above
+    <link href="css/ionic.app.css" rel="stylesheet">
+    -->
+
+    <!-- ionic/angularjs js -->
+    <script src="lib/ionic/js/ionic.bundle.js"></script>
+
+    <!-- cordova script (this will be a 404 during development) -->
+    <script src="cordova.js"></script>
+
+    <!-- your app's js -->
+    <script src="js/controllers.js"></script>
+    <script src="js/main.js"></script>
+  </head>
+
+<body onload="init()" ng-controller="MyCtrl">
+      <!-- header -->
+      <div class="bar bar-header bar-dark">
+        <h1 class="title">Genetic Algorithm</h1>
+      </div>
+      <!-- /header -->
+      <div class="list has-header">
+
+        <div class="item  item-divider">
+          Main characteristic
+        </div>
+
+        <!-- <div class="list"> -->
+          <label class="item item-input">
+              <span class="input-label">
+              The number of population
+              </span>
+                 <input type="number" id="maxPopSize" value="80" /> 
+           </label>
+          <label class="item item-input">
+            <i class="icon ion-ios-people padding"></i>
+              <span class="input-label">
+               Alive(%)
+              </span>
+               <input type="number" id="survivePercent" value="80"  min="10" 
+                max="100" /> 
+          </label>
+
+    <!--       <div class="item range range-positive">
+             <span  class="input-label">
+                 Alive to next generation from previos(%)
+              </span>
+            <i class="icon ion-ios-people-outline"></i>
+            <input type="range" name="volume" id="seniorSurvivePercent"min="0" max="90" value="5" />
+            <i class="icon ion-ios-people"></i>
+          </div>
+
+          <div class="range">
+            <i class="icon ion-volume-low"></i>
+            <input type="range" name="volume" ng-model="data.volume">
+            <i class="icon ion-volume-high"></i>
+          </div>
+          <p>Volume : {{data.volume}}</p>
+        -->
+
+          <label class="item item-input">
+              <span class="input-label">
+                Are alive in the next generation from previos(%)
+              </span>
+              <input type="number" id="seniorSurvivePercent" value="5" min="0" 
+                      max="90" />
+           </label>
+
+
+         <label class="item item-input">
+              <span class="input-label">
+                Number of iteration
+              </span>
+              <input type="number" id="itLimit" value="1000" />
+          </label>
+
+          <label class="item item-input item-select">
+              <div class="input-label">
+                    Type of crossingover
+              </div>
+              <select id="crossover">
+                <option selected="selected" value="0">Single point</option>
+                <option value="1">Multi point (2)</option>
+                <option value="2">Multi point (3)</option>
+              </select>
+            </label>
+
+        <div class="item  item-divider padding">
+           <i class="icon ion-ios-ionic-outline"></i>
+               Option of circles
+        </div>
+        <label class="item item-input">
+          <span class="input-label">
+           N dots at r1
+          </span>
+          <input type="number" id="r1PointCount" value="16"></input>
+        </label>
+        <label class="item item-input">
+          <span class="input-label">
+           N dots at r2
+          </span>
+         <input type="number" id="r2PointCount" value="16"></input>
+        </label>
+        <label class="item item-input">
+          <span class="input-label">
+          r1 </span>
+       <input type="number" id="r1" value="40"></input>
+        </label>
+        <label class="item item-input">
+          <span class="input-label">
+          dr </span>
+          <input type="number" id="dr" value="1.5" step="0.1"></input>
+        </label>
+        <label class="item item-input">
+          <span class="input-label">
+           &Theta; (&deg;) </span>
+          <input type="number" id="theta" value="0"></input>
+        </label>
+
+    <div class="row">
+      <div class="col col-50">
+          <button class='button button-block button-balanced' onclick="generate()"> Generate route</button>
+      </div>
+      <div class="col">
+        <button id="bl" class='button button-block button-positive' onclick="cons()"> Create Route</button>
+      </div>
+    </div>
+      <div class="col ">
+        <button id="clr" class='button button-block button-assertive' onclick="erase()"> Erase</button>
+      </div>
+
+    <div class= 'canvas clear-fix'> 
+      <canvas id="can"></canvas>
+    </div>
+
+</body>
+
+</html>

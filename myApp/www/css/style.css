@@ -1,0 +1,16 @@
+/* Empty. Add your own CSS if you like */
+html{
+	font: 20px normal "PT Sans", Arial;
+}
+div .canvas{
+	border: 2px solid #ccc;
+	margin: 5px ;
+	/*width: 98%; */
+	height:300px;
+	padding:20px;
+}
+.clear-fix{
+	clear: both;
+	content: '';
+	display: block;
+}
